@@ -1,0 +1,64 @@
+.login-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 300px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.login-wrapper h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.login-wrapper form {
+  margin-top: 32px;
+  font-size: 20px;
+}
+
+.login-wrapper form label {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.login-wrapper form input {
+  width: 70%;
+  font-size: 18px;
+  padding: 5px 10px;
+}
+
+.login-wrapper-button {
+  width: 100%;
+  background-color: lightblue;
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.login-wrapper-button[disabled] {
+  background-color: lightgray;
+  cursor: not-allowed;
+}
+
+.login-link {
+  text-align: right;
+}
+.login-link span {
+  padding-right: 9px;
+}
+
+.login-link a {
+  color: red;
+  cursor: pointer;
+}
