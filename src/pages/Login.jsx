@@ -22,8 +22,8 @@ const Login = () => {
   };
 
   return (
-    <div className="login-wrapper">
-      <form className="login-form" onSubmit={loginSubmitHandler}>
+    <div className="member-wrapper">
+      <form className="member-form" onSubmit={loginSubmitHandler}>
         <label>
           아이디
           <input
@@ -42,7 +42,7 @@ const Login = () => {
         </label>
         <button
           type="submit"
-          className="login-wrapper-button"
+          className="member-wrapper-button"
           disabled={
             checkEmail(email) === "success" &&
             checkPassword(password) === "success"
@@ -54,7 +54,7 @@ const Login = () => {
           로그인
         </button>
       </form>
-      <div className="login-link">
+      <div className="member-link">
         <span>회원가입을 하시지 않으셨다면?</span>
         <Link to={"/signup"}>회원가입</Link>
       </div>

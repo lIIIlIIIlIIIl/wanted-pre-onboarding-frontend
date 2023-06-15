@@ -1,4 +1,4 @@
-.login-wrapper {
+.member-wrapper {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -11,18 +11,18 @@
   justify-content: space-around;
 }
 
-.login-wrapper h1 {
+.member-wrapper h1 {
   text-align: center;
   font-weight: bold;
   font-size: 32px;
 }
 
-.login-wrapper form {
+.member-wrapper form {
   margin-top: 32px;
   font-size: 20px;
 }
 
-.login-wrapper form label {
+.member-wrapper form label {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -30,13 +30,13 @@
   margin-bottom: 32px;
 }
 
-.login-wrapper form input {
+.member-wrapper form input {
   width: 70%;
   font-size: 18px;
   padding: 5px 10px;
 }
 
-.login-wrapper-button {
+.member-wrapper-button {
   width: 100%;
   background-color: lightblue;
   border: none;
@@ -46,19 +46,19 @@
   cursor: pointer;
 }
 
-.login-wrapper-button[disabled] {
+.member-wrapper-button[disabled] {
   background-color: lightgray;
   cursor: not-allowed;
 }
 
-.login-link {
+.member-link {
   text-align: right;
 }
-.login-link span {
+.member-link span {
   padding-right: 9px;
 }
 
-.login-link a {
+.member-link a {
   color: red;
   cursor: pointer;
 }
