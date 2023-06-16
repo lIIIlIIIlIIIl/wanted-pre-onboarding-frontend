@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useRouter } from "../hooks/useRouter";
-import { checkEmail } from "../helper/validationCheck";
+import { checkEmail, checkPassword } from "../helper/validationCheck";
 import { Link } from "react-router-dom";
+import { signup_API } from "../api/signApi";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -9,8 +10,20 @@ const Signup = () => {
 
   const { routeTo } = useRouter();
 
-  const signupSubmitHandler = (event) => {
+  const signupSubmitHandler = async (event) => {
     event.preventDefault();
+    const userInfo = { email, password };
+
+    try {
+      const response = await signup_API(userInfo);
+
+      if (response.status === 201) {
+        routeTo("/signin");
+      }
+    } catch (error) {
+      const { response } = error;
+      alert(response.data?.message);
+    }
   };
 
   const onChageEmail = (event) => {
@@ -45,7 +58,7 @@ const Signup = () => {
           className="member-wrapper-button"
           disabled={
             checkEmail(email) === "success" &&
-            checkEmail(password) === "success"
+            checkPassword(password) === "success"
               ? ""
               : "disabled"
           }
