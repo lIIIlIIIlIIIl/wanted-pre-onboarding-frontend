@@ -1,0 +1,26 @@
+.todo-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  padding: 25px;
+  background-color: aquamarine;
+}
+
+.todo-wrapper-write {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+}
+
+.todo-wrapper-write input {
+  width: 80%;
+  height: 30px;
+  padding: 3px 10px;
+}
+.todo-wrapper-write button {
+  width: 15%;
+  height: 30px;
+}

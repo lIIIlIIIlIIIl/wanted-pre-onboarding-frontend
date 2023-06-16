@@ -1,6 +1,10 @@
 @import "reset.css";
 @import "login.css";
+@import "todo.css";
 
+* {
+  box-sizing: border-box;
+}
 body {
   height: 100vh;
 }
