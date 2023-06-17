@@ -26,3 +26,19 @@ button {
 input {
   display: inline-block;
 }
+
+.home {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.home a {
+  cursor: pointer;
+  font-size: 24px;
+}
