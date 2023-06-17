@@ -1,14 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "../hooks/useRouter";
 import { checkEmail, checkPassword } from "../helper/validationCheck";
 import { Link } from "react-router-dom";
 import { signup_API } from "../api/signApi";
+import { getLocalStorage } from "../helper/localStorageHandler";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const { routeTo } = useRouter();
+
+  useEffect(() => {
+    if (!!getLocalStorage("token")) {
+      routeTo("/todo");
+    }
+  }, []);
 
   const signupSubmitHandler = async (event) => {
     event.preventDefault();
