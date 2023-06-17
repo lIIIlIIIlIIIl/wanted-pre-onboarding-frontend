@@ -12,7 +12,7 @@ const Todo = () => {
 
   useEffect(() => {
     if (!getLocalStorage("token")) {
-      routeTo("/signin");
+      return routeTo("/signin");
     }
 
     const getMyTodo = async () => {
