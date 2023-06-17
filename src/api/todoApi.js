@@ -3,7 +3,7 @@ import Axios from "./const";
 
 const { access_token } = getLocalStorage("token");
 
-export const postTodo_API = (todo) => {
+export const createTodo_API = (todo) => {
   const url = "/todos";
   return Axios.post(url, todo, {
     headers: { Authorization: `Bearer ${access_token}` },
@@ -13,6 +13,20 @@ export const postTodo_API = (todo) => {
 export const getTodo_API = () => {
   const url = "/todos";
   return Axios.get(url, {
+    headers: { Authorization: `Bearer ${access_token}` },
+  });
+};
+
+export const updateTodo_API = (id, body) => {
+  const url = `/todos/${id}`;
+  return Axios.put(url, body, {
+    headers: { Authorization: `Bearer ${access_token}` },
+  });
+};
+
+export const deleteTodo_API = (id) => {
+  const url = `/todos/${id}`;
+  return Axios.delete(url, {
     headers: { Authorization: `Bearer ${access_token}` },
   });
 };
