@@ -40,42 +40,62 @@ const TodoItem = ({ todo, id, isCompleted, onDeleteHandler }) => {
         <li>
           <label>
             <input
+              className="m-r todo-todoList-check"
               type="checkbox"
               onChange={onCompletHandler}
               checked={isChecked ? "checked" : ""}
             />
             <input
+              className="todo-todoList-change"
               data-testid="modify-input"
               value={chageTodo}
               onChange={(e) => setChageTodo(e.target.value)}
             />
           </label>
-          <button data-testid="submit-button" onClick={onSubmitHandler}>
-            제출
-          </button>
-          <button data-testid="cancel-button" onClick={onModifyHandler}>
-            취소
-          </button>
+          <div>
+            <button
+              className="todo-todoList-button"
+              data-testid="submit-button"
+              onClick={onSubmitHandler}
+            >
+              제출
+            </button>
+            <button
+              className="todo-todoList-button m-l"
+              data-testid="cancel-button"
+              onClick={onModifyHandler}
+            >
+              취소
+            </button>
+          </div>
         </li>
       ) : (
         <li>
           <label>
             <input
+              className="m-r todo-todoList-check"
               type="checkbox"
               onChange={onCompletHandler}
               checked={isChecked ? "checked" : ""}
             />
             <span>{chageTodo}</span>
           </label>
-          <button data-testid="modify-button" onClick={onModifyHandler}>
-            수정
-          </button>
-          <button
-            data-testid="delete-button"
-            onClick={() => onDeleteHandler(id)}
-          >
-            삭제
-          </button>
+          <div>
+            <button
+              className="todo-todoList-button"
+              data-testid="modify-button"
+              onClick={onModifyHandler}
+            >
+              수정
+            </button>
+            <button
+              className="m-l todo-todoList-button"
+              data-testid="delete-button"
+              onClick={() => onDeleteHandler(id)}
+            >
+              삭제
+            </button>
+          </div>
         </li>
       )}
     </>

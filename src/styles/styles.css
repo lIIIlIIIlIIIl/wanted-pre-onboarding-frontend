@@ -18,3 +18,11 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+button {
+  border: none;
+}
+
+input {
+  display: inline-block;
+}

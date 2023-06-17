@@ -66,21 +66,17 @@ const Todo = () => {
           추가
         </button>
       </form>
-      {todoList.length === 0 ? (
-        <div>작성된 내용이 없습니다.</div>
-      ) : (
-        <ul>
-          {todoList.map((todo) => (
-            <TodoItem
-              todo={todo.todo}
-              id={todo.id}
-              key={todo.id}
-              isCompleted={todo.isCompleted}
-              onDeleteHandler={onDeleteHandler}
-            />
-          ))}
-        </ul>
-      )}
+      <ul className="todo-todoList">
+        {todoList.map((todo) => (
+          <TodoItem
+            todo={todo.todo}
+            id={todo.id}
+            key={todo.id}
+            isCompleted={todo.isCompleted}
+            onDeleteHandler={onDeleteHandler}
+          />
+        ))}
+      </ul>
     </section>
   );
 };

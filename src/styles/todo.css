@@ -4,15 +4,16 @@
   top: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
+  min-height: 300px;
   padding: 25px;
   background-color: aquamarine;
+  border-radius: 9px;
 }
 
 .todo-wrapper-write {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 30px;
 }
 
 .todo-wrapper-write input {
@@ -23,4 +24,46 @@
 .todo-wrapper-write button {
   width: 15%;
   height: 30px;
+}
+
+.todo-todoList {
+  margin-top: 15px;
+}
+
+.todo-todoList li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  margin-bottom: 10px;
+  height: 30px;
+}
+
+.todo-todoList li label {
+  display: flex;
+  align-items: center;
+}
+
+.todo-todoList-check {
+  width: 20px;
+  height: 20px;
+}
+
+.todo-todoList-change {
+  padding: 5px 15px;
+  width: 200px;
+}
+
+.todo-todoList-button {
+  padding: 6px;
+  background-color: white;
+  border-radius: 9px;
+}
+
+.m-l {
+  margin-left: 10px;
+}
+
+.m-r {
+  margin-right: 15px;
 }
