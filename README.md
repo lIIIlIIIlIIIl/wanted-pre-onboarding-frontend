@@ -12,4 +12,7 @@
 
 ### 데모 영상 또는 베포 링크
 
+**배포링크**
+https://wanted-pre-onboarding-frontend-gules.vercel.app/
+
 ---
