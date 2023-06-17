@@ -8,6 +8,7 @@ import TodoItem from "../components/TodoItems";
 const Todo = () => {
   const { routeTo } = useRouter();
   const [todoList, setTodoLit] = useState([]);
+  const [writeTodo, setWriteTodo] = useState("");
 
   useEffect(() => {
     if (!getLocalStorage("token")) {
@@ -30,17 +31,17 @@ const Todo = () => {
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
 
     const newTodo = {
-      todo: formData.get("todo"),
+      todo: writeTodo,
     };
 
     try {
       const response = await createTodo_API(newTodo);
 
       if (response.status === 201) {
-        setTodoLit([response.data, ...todoList]);
+        setTodoLit([...todoList, response.data]);
+        setWriteTodo("");
       }
     } catch (error) {
       console.log(error);
@@ -61,7 +62,14 @@ const Todo = () => {
   return (
     <section className="todo-wrapper">
       <form className="todo-wrapper-write" onSubmit={onSubmitHandler}>
-        <input type="text" name="todo" data-testid="new-todo-input" />
+        <input
+          type="text"
+          name="todo"
+          data-testid="new-todo-input"
+          value={writeTodo}
+          placeholder="해야할 일을 적어주세요."
+          onChange={(e) => setWriteTodo(e.target.value)}
+        />
         <button type="submit" data-testid="new-todo-add-button">
           추가
         </button>
