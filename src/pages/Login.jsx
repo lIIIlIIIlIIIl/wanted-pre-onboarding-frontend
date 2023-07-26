@@ -8,6 +8,7 @@ import {
   getLocalStorage,
   setLocalStorage,
 } from "../helper/localStorageHandler";
+import { USER } from "../mock/data/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -24,6 +25,11 @@ const Login = () => {
   const loginSubmitHandler = async (event) => {
     event.preventDefault();
     const userInfo = { email, password };
+
+    if (email === USER.email && password === USER.password) {
+      routeTo("/todo");
+    }
+
     try {
       const response = await signin_API(userInfo);
       if (response.status === 200) {
