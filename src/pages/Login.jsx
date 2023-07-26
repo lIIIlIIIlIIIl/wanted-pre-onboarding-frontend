@@ -66,10 +66,8 @@ const Login = () => {
           type="submit"
           className="member-wrapper-button"
           disabled={
-            checkEmail(email) === "success" &&
-            checkPassword(password) === "success"
-              ? ""
-              : "disabled"
+            checkEmail(email) !== "success" ||
+            checkPassword(password) !== "success"
           }
           data-testid="signin-button"
         >
