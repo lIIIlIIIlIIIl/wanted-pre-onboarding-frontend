@@ -4,6 +4,7 @@ import { checkEmail, checkPassword } from "../helper/validationCheck";
 import { Link } from "react-router-dom";
 import { signup_API } from "../api/signApi";
 import { getLocalStorage } from "../helper/localStorageHandler";
+import { USER } from "../mock/data/auth";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -15,11 +16,15 @@ const Signup = () => {
     if (!!getLocalStorage("token")) {
       routeTo("/todo");
     }
-  }, []);
+  }, [routeTo]);
 
   const signupSubmitHandler = async (event) => {
     event.preventDefault();
     const userInfo = { email, password };
+
+    if (email === USER.email && password === USER.password) {
+      routeTo("/signin");
+    }
 
     try {
       const response = await signup_API(userInfo);
@@ -64,10 +69,8 @@ const Signup = () => {
           type="submit"
           className="member-wrapper-button"
           disabled={
-            checkEmail(email) === "success" &&
-            checkPassword(password) === "success"
-              ? ""
-              : "disabled"
+            checkEmail(email) !== "success" ||
+            checkPassword(password) !== "success"
           }
           data-testid="signup-button"
         >
