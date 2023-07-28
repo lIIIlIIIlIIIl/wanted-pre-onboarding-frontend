@@ -4,10 +4,10 @@ import { updateTodo_API } from "../api/todoApi";
 const TodoItem = ({ todo, id, isCompleted, onDeleteHandler }) => {
   const [isModify, setIsModify] = useState(false);
   const [isChecked, setIsChecked] = useState(isCompleted);
-  const [chageTodo, setChageTodo] = useState(todo);
+  const [changeTodo, setChangeTodo] = useState(todo);
 
   const onCompletHandler = async () => {
-    const body = { todo: chageTodo, isCompleted: !isChecked };
+    const body = { todo: changeTodo, isCompleted: !isChecked };
     try {
       const response = await updateTodo_API(id, body);
       if (response.status === 200) {
@@ -23,7 +23,7 @@ const TodoItem = ({ todo, id, isCompleted, onDeleteHandler }) => {
   };
 
   const onSubmitHandler = async () => {
-    const body = { todo: chageTodo, isCompleted: isChecked };
+    const body = { todo: changeTodo, isCompleted: isChecked };
     try {
       const response = await updateTodo_API(id, body);
       if (response.status === 200) {
@@ -48,8 +48,8 @@ const TodoItem = ({ todo, id, isCompleted, onDeleteHandler }) => {
             <input
               className="todo-todoList-change"
               data-testid="modify-input"
-              value={chageTodo}
-              onChange={(e) => setChageTodo(e.target.value)}
+              value={changeTodo}
+              onChange={(e) => setChangeTodo(e.target.value)}
             />
           </label>
           <div>
@@ -71,15 +71,14 @@ const TodoItem = ({ todo, id, isCompleted, onDeleteHandler }) => {
         </li>
       ) : (
         <li>
-          <label>
-            <input
-              className="m-r todo-todoList-check"
-              type="checkbox"
-              onChange={onCompletHandler}
-              checked={isChecked ? "checked" : ""}
-            />
-            <span>{chageTodo}</span>
-          </label>
+          <input
+            className="m-r todo-todoList-check"
+            type="checkbox"
+            onChange={onCompletHandler}
+            checked={isChecked ? "checked" : ""}
+          />
+
+          <label htmlFor={changeTodo}>{changeTodo}</label>
           <div>
             <button
               className="todo-todoList-button"

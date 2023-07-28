@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { getLocalStorage } from "../helper/localStorageHandler";
 import { useRouter } from "../hooks/useRouter";
 import { getTodo_API, createTodo_API, deleteTodo_API } from "../api/todoApi";
-import TodoItem from "../components/TodoItems";
+import TodoList from "../components/TodoList";
 
 const Todo = () => {
   const { routeTo } = useRouter();
@@ -35,6 +35,11 @@ const Todo = () => {
     const newTodo = {
       todo: writeTodo,
     };
+
+    if (writeTodo === "") {
+      alert("할일을 입력해주세요.");
+      return;
+    }
 
     try {
       const response = await createTodo_API(newTodo);
@@ -74,17 +79,7 @@ const Todo = () => {
           추가
         </button>
       </form>
-      <ul className="todo-todoList">
-        {todoList.map((todo) => (
-          <TodoItem
-            todo={todo.todo}
-            id={todo.id}
-            key={todo.id}
-            isCompleted={todo.isCompleted}
-            onDeleteHandler={onDeleteHandler}
-          />
-        ))}
-      </ul>
+      <TodoList todoList={todoList} onDeleteHandler={onDeleteHandler} />
     </section>
   );
 };
